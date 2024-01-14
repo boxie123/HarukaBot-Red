@@ -9,7 +9,7 @@ from typing import Optional
 
 import skia
 from nonebot.log import logger
-from aunly_captcha_solver import CaptchaInfer
+# from aunly_captcha_solver import CaptchaInfer
 from playwright.__main__ import main
 from playwright.async_api import BrowserContext, async_playwright, Page
 from bilireq.utils import get, DEFAULT_HEADERS
@@ -142,13 +142,13 @@ async def get_dynamic_screenshot_mobile(dynamic_id, page: Page):
     url = f"https://m.bilibili.com/dynamic/{dynamic_id}"
     await page.set_viewport_size({"width": 460, "height": 780})
     await page.route(re.compile("^https://static.graiax/fonts/(.+)$"), fill_font)
-    if plugin_config.haruka_captcha_address:
-        captcha = CaptchaInfer(
-            plugin_config.haruka_captcha_address, plugin_config.haruka_captcha_token
-        )
-        page = await captcha.solve_captcha(page, url)
-    else:
-        await page.goto(url, wait_until="networkidle")
+    # if plugin_config.haruka_captcha_address:
+    #     captcha = CaptchaInfer(
+    #         plugin_config.haruka_captcha_address, plugin_config.haruka_captcha_token
+    #     )
+    #     page = await captcha.solve_captcha(page, url)
+    # else:
+    await page.goto(url, wait_until="networkidle")
     # 动态被删除或者进审核了
     if page.url == "https://m.bilibili.com/404":
         raise Notfound
