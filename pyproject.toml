@@ -1,9 +1,13 @@
 [project]
-name = "HarukaBot-Red"
+name = "haruka_bot_red"
+authors = [
+    {name = "boxie123", email = "platinumshard@outlook.com"},
+]
 version = "0.1.0"
 description = "HarukaBot-Red"
 readme = "README.md"
 requires-python = ">=3.8, <4.0"
+license = {text = "AGPL-3.0-or-later"}
 dependencies = [
     "click>=8.1.3",
     "httpx>=0.24.1",
