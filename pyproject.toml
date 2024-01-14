@@ -3,7 +3,7 @@ name = "haruka_bot_red"
 authors = [
     {name = "boxie123", email = "platinumshard@outlook.com"},
 ]
-version = "0.1.0"
+version = "0.1.2"
 description = "HarukaBot-Red"
 readme = "README.md"
 requires-python = ">=3.8, <4.0"
@@ -26,6 +26,7 @@ dependencies = [
     "dynamicadaptor>=0.4.7",
     "dynrender-skia>=0.1.6",
 ]
+urls = { Homepage = "https://github.com/boxie123/HarukaBot-Red" }
 
 [tool.nonebot]
 adapters = [

@@ -11,6 +11,8 @@ env = {
     "SUPERUSERS": [],
     "COMMAND_START": [""],
     "HARUKA_DIR": "./data/",
+    "DRIVER": "~fastapi+~httpx+~websockets",
+    "RED_AUTO_DETECT": True,
 }
 
 

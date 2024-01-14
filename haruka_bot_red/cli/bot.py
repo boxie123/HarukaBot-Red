@@ -12,8 +12,8 @@ driver.register_adapter(Adapter)
 app = nonebot.get_asgi()
 
 # 删除 haruka_bot 导入，否则 nonebot 导入时会忽略
-del sys.modules["haruka_bot"]
-nonebot.load_plugin("haruka_bot")
+del sys.modules["haruka_bot_red"]
+nonebot.load_plugin("haruka_bot_red")
 
 # Modify some config / config depends on loaded configs
 #
@@ -32,4 +32,4 @@ logger.add(
 
 
 def run():
-    nonebot.run(app="haruka_bot.cli.bot:app")
+    nonebot.run(app="haruka_bot_red.cli.bot:app")
