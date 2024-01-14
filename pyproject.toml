@@ -3,7 +3,6 @@ name = "haruka_bot_red"
 authors = [
     {name = "boxie123", email = "platinumshard@outlook.com"},
 ]
-version = "0.1.2"
 description = "HarukaBot-Red"
 readme = "README.md"
 requires-python = ">=3.8, <4.0"
