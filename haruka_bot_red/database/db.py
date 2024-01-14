@@ -28,12 +28,12 @@ class DB:
                 #     "engine": "tortoise.backends.sqlite",
                 #     "credentials": {"file_path": get_path("data.sqlite3")},
                 # },
-                "haruka_bot": f"sqlite://{get_path('data.sqlite3')}"
+                "haruka_bot_red": f"sqlite://{get_path('data.sqlite3')}"
             },
             "apps": {
-                "haruka_bot_app": {
-                    "models": ["haruka_bot.database.models"],
-                    "default_connection": "haruka_bot",
+                "haruka_bot_red_app": {
+                    "models": ["haruka_bot_red.database.models"],
+                    "default_connection": "haruka_bot_red",
                 }
             },
         }
