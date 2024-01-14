@@ -75,17 +75,6 @@ class Version(BaseModel):
     version = CharField(max_length=30)
 
 
-class Date(BaseModel):
-    type = CharField(max_length=10)
-    type_id = IntField()
-    bot_id = IntField()
-
-
-class Special(BaseModel):
-    name = CharField(max_length=30)
-    month = IntField()
-    day = IntField()
-
 # class Login(BaseModel):
 #     uid = IntField(pk=True)
 #     data = JSONField()

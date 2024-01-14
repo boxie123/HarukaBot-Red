@@ -10,7 +10,7 @@ from tortoise.connection import connections
 
 from ..utils import get_path
 from ..version import VERSION as HBVERSION
-from .models import Group, Guild, Sub, User, Version, Date, Special
+from .models import Group, Guild, Sub, User, Version
 
 uid_list = {"live": {"list": [], "index": 0}, "dynamic": {"list": [], "index": 0}}
 dynamic_offset = {}
@@ -315,48 +315,6 @@ class DB:
     async def update_login(cls, tokens):
         """更新登录信息"""
         pass
-
-    @classmethod
-    async def add_date(cls, **kwargs) -> bool:
-        """添加节假日订阅"""
-        if not await Date.add(**kwargs):
-            return False
-        if kwargs["type"] == "group":
-            await cls.add_group(id=kwargs["type_id"], admin=True)
-        return True
-
-    @classmethod
-    async def get_date_list(cls, **kwargs):
-        """获取需要推送的节假日提醒列表"""
-        return await Date.get(**kwargs)
-
-    @classmethod
-    async def delete_date(cls, type, type_id) -> bool:
-        """删除节假日订阅信息"""
-        if await Date.delete(type=type, type_id=type_id):
-            return True
-        # 订阅不存在
-        return False
-
-    @classmethod
-    async def get_special_list(cls, **kwargs):
-        """获取 api 中没有的特殊日期列表"""
-        return await Special.get(**kwargs)
-
-    @classmethod
-    async def add_special(cls, **kwargs) -> bool:
-        """添加 api 中没有的特殊日期"""
-        if not await Special.add(**kwargs):
-            return False
-        return True
-
-    @classmethod
-    async def delete_special(cls, name) -> bool:
-        """删除 api 中没有的特殊日期"""
-        if await Special.delete(name=name):
-            return True
-        # 特殊日期不存在
-        return False
 
 
 get_driver().on_startup(DB.init)
