@@ -18,8 +18,8 @@ class Config(BaseSettings):
     haruka_dynamic_interval: int = 0
     haruka_dynamic_at: bool = False
     haruka_screenshot_style: str = "mobile"
-    haruka_captcha_address: str = "https://captcha-cd.ngworks.cn"
-    haruka_captcha_token: str = "harukabot"
+    # haruka_captcha_address: str = "https://captcha-cd.ngworks.cn"
+    # haruka_captcha_token: str = "harukabot"
     haruka_browser_ua: Optional[str] = None
     haruka_browser_cookie: Optional[str] = None
     haruka_dynamic_timeout: int = 30
