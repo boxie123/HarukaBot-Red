@@ -26,6 +26,8 @@ dependencies = [
     "dynrender-skia>=0.1.6",
 ]
 urls = { Homepage = "https://github.com/boxie123/HarukaBot-Red" }
+dynamic = ["version"]
+keywords = ["nonebot", "nonebot2", "qqbot", "bilibili", "bot", "red", "chronocat"]
 
 [tool.nonebot]
 adapters = [
