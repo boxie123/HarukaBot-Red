@@ -40,6 +40,11 @@ async def live_sched():
         status[uid] = new_status
 
         name = info["uname"]
+        if name == "艾鸽泰尔德":
+            aige_name = "鸽宝"
+        else:
+            aige_name = name
+
         if new_status:  # 开播
             live_time[uid] = info["live_time"]
             room_id = info["short_id"] or info["room_id"]
@@ -52,7 +57,7 @@ async def live_sched():
             room_area = f"{area_parent} / {area}"
             logger.info(f"检测到开播：{name}（{uid}）")
             live_msg = (
-                f"{name} 开播啦！\n分区：{room_area}\n标题：{title}\n"
+                f"{aige_name} 开播啦！\n分区：{room_area}\n标题：{title}\n"
                 + MessageSegment.image(cover_bytesio)
                 + f"\n{url}"
             )
@@ -65,7 +70,10 @@ async def live_sched():
                 if live_time.get(uid)
                 else "。"
             )
-            live_msg = f"{name} 下播了{live_time_msg}"
+            bixin_path = Path("./17.png").resolve()
+            live_msg = (
+                f"{aige_name}下锅啦{live_time_msg}\n" + MessageSegment.image(bixin_path)
+            )
 
         # 推送
         push_list = await db.get_push_list(uid, "live")

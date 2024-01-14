@@ -87,9 +87,12 @@ async def dy_sched():
                 "DYNAMIC_TYPE_ARTICLE": "发布了新专栏",
                 "DYNAMIC_TYPE_MUSIC": "发布了新音频",
             }
-
+            if name == "艾鸽泰尔德":
+                aige_name = "鸽宝"
+            else:
+                aige_name = name
             message = (
-                f"{name} {type_msg.get(dynamic['type'], type_msg[0])}：\n"
+                f"{aige_name} {type_msg.get(dynamic['type'], type_msg[0])}：\n"
                 + str(f"动态图片可能截图异常：{err}\n" if err else "")
                 + MessageSegment.image(image)
                 + f"\n{url}"

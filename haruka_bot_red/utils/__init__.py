@@ -60,6 +60,8 @@ async def uid_check(
         uid = extract
     else:
         await matcher.finish("未找到该 UP，请输入正确的 UP 群内昵称、UP 名、UP UID或 UP 首页链接")
+    if uid not in plugin_config.haruka_permission_uid:
+        await matcher.finish("baka, 只许关注鸽宝")
     matcher.set_arg("uid", Message(uid))
 
 
@@ -137,15 +139,30 @@ async def _guild_admin(bot: Bot, event: GuildMessageEvent):
 GUILD_ADMIN: Permission = Permission(_guild_admin)
 
 
+async def _allow_private_chat(event: PrivateMessageEvent):
+    target = {
+        "2500169247", "137353452"
+    }
+    try:
+        user_id = event.get_user_id()
+    except Exception:
+        return False
+    return user_id in target
+
+
+PRIVATE_ALLOW: Permission = Permission(_allow_private_chat)
+
+
 async def permission_check(
     bot: Bot, event: Union[GroupMessageEvent, PrivateMessageEvent, GuildMessageEvent]
 ):
     from ..database import DB as db
 
     if isinstance(event, PrivateMessageEvent):
-        if event.subMsgType == -1:  # 占位，无实际作用
-            raise FinishedException
-        return
+        if await (SUPERUSER | PRIVATE_ALLOW)(bot, event):
+            return
+        await bot.send(event, "为避免风控，暂不支持私聊事件")
+        raise FinishedException   # 不处理私聊
     if isinstance(event, GroupMessageEvent):
         if not await db.get_group_admin(event.group_id):
             return
@@ -211,7 +228,8 @@ async def safe_send(bot_id, send_type, type_id, message, at=False):
             #     channel_id=guild.channel_id,
             #     message=message,
             # )
-            return   # 暂时不处理频道消息
+            # 不处理频道消息
+            return
         else:
             if send_type == "group":
                 send_type = ChatType.GROUP
@@ -305,4 +323,5 @@ require("nonebot_plugin_apscheduler")
 from nonebot_plugin_apscheduler import scheduler  # noqa
 
 from .browser import get_dynamic_screenshot  # noqa
+from .special_date_get import get_special_date   # noqa
 from .get_dynamic_list import get_user_dynamics  # noqa

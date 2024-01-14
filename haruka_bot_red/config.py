@@ -29,6 +29,8 @@ class Config(BaseSettings):
     haruka_command_prefix: str = ""
     # 频道管理员身份组
     haruka_guild_admin_roles: List[str] = ["频道主", "超级管理员"]
+    # 允许操作的UID
+    haruka_permission_uid: List[str] = ["1485569", "1785821491"]
 
     @validator("haruka_interval", "haruka_live_interval", "haruka_dynamic_interval")
     def non_negative(cls, v: int, field: ModelField):
