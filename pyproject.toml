@@ -1,0 +1,43 @@
+[project]
+name = "HarukaBot-Red"
+version = "0.1.0"
+description = "HarukaBot-Red"
+readme = "README.md"
+requires-python = ">=3.8, <4.0"
+dependencies = [
+    "click>=8.1.3",
+    "httpx>=0.24.1",
+    "nonebot-adapter-red[auto_detect]>=0.8.0",
+    "nonebot-plugin-apscheduler>=0.3.0",
+    "nonebot2[fastapi]>=2.0.0",
+    "playwright>=1.35.0",
+    "pydantic>=1.10.9, <=2.0",
+    "python-dotenv>=1.0.0",
+    "tortoise-orm[asyncpg]>=0.19.3",
+    "bilireq>=0.2.6",
+    "packaging>=23.1",
+    "nonebot-plugin-guild-patch>=0.2.3",
+    "msvc-runtime>=14.34.31931; sys_platform == \"win32\"",
+    "aunly-captcha-solver>=0.1",
+    "dynamicadaptor>=0.4.7",
+    "dynrender-skia>=0.1.6",
+]
+
+[tool.nonebot]
+adapters = [
+    { name = "RedProtocol", module_name = "nonebot.adapters.red" }
+]
+plugins = ["haruka_bot", "nonebot_plugin_guild_patch"]
+plugin_dirs = []
+builtin_plugins = []
+
+[project.scripts]
+hb = "haruka_bot.__main__:main"
+
+[tool.pdm.version]
+source = "file"
+path = "haruka_bot/version.py"
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
