@@ -27,16 +27,16 @@ dependencies = [
 adapters = [
     { name = "RedProtocol", module_name = "nonebot.adapters.red" }
 ]
-plugins = ["haruka_bot", "nonebot_plugin_guild_patch"]
+plugins = ["haruka_bot_red", "nonebot_plugin_guild_patch"]
 plugin_dirs = []
 builtin_plugins = []
 
 [project.scripts]
-hb = "haruka_bot.__main__:main"
+hb = "haruka_bot_red.__main__:main"
 
 [tool.pdm.version]
 source = "file"
-path = "haruka_bot/version.py"
+path = "haruka_bot_red/version.py"
 
 [build-system]
 requires = ["pdm-pep517>=1.0.0"]
