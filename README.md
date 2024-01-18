@@ -15,6 +15,9 @@ hb run
 ```
 
 ### 原hb用户如何迁移？
+
+> 如果你是新用户，或许并不需要以下内容
+
 1. 卸载原环境中的`haruka_bot`，或新建虚拟环境，并安装`haruka_bot_red`
 1. 在原`.env.prod`中添加行：
     ```dotenv
