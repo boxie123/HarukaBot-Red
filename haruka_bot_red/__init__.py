@@ -1,6 +1,8 @@
 from nonebot.plugin import PluginMetadata
 from nonebot.plugin.manager import PluginLoader
 
+from .config import Config
+
 if isinstance(globals()["__loader__"], PluginLoader):
     from .utils import on_startup
 
@@ -22,4 +24,5 @@ __plugin_meta__ = PluginMetadata(
         "version": __version__,
         "priority": 1,
     },
+    config=Config,
 )
