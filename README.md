@@ -4,6 +4,9 @@
 因[`go-cqhttp`停止维护](https://github.com/Mrs4s/go-cqhttp/issues/2471)，
 且替代方案`chronocat`不支持`onebot`协议，故修改得到此版本，方便原`hb`用户迁移。
 
+### 须知
+`chronocat`目前虽然仍在持续维护，但并未开源，如果你是新用户，更推荐继续使用原版`HarukaBot`配合[LiteLoaderQQNT-OneBotApi](https://github.com/linyuchen/LiteLoaderQQNT-OneBotApi)而非本项目。
+
 ### 安装
 ```commandline
 pip install haruka_bot_red
