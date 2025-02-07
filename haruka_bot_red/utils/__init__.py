@@ -60,8 +60,8 @@ async def uid_check(
         uid = extract
     else:
         await matcher.finish("未找到该 UP，请输入正确的 UP 群内昵称、UP 名、UP UID或 UP 首页链接")
-    if uid not in plugin_config.haruka_permission_uid:
-        await matcher.finish("baka, 只许关注鸽宝")
+    # if uid not in plugin_config.haruka_permission_uid:
+    #     await matcher.finish("baka, 只许关注鸽宝")
     matcher.set_arg("uid", Message(uid))
 
 
