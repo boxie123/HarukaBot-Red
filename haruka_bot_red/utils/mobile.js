@@ -13,7 +13,7 @@ async function getMobileStyle(useImageBig = false) {
         // 分享 dom
         shareDoms: [".dyn-share"],
         // 打开程序 dom
-        openAppBtnDoms: [".dynamic-float-btn", ".float-openapp"],
+        openAppBtnDoms: [".dynamic-float-btn", ".float-openapp", ".opus-float-btn"],
         // 导航 dom
         navDoms: [".m-navbar", ".opus-nav"],
         // 获取更多 dom
