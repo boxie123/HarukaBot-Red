@@ -1,4 +1,11 @@
 # HarukaBot-Red
+
+> **归档说明**
+> 
+> QQ限制了较旧版本客户端登录，同时在较新版客户端增加了针对llqqnt的检测，导致账号会不定时下线，暂时无解决方法。
+>
+> 由于本项目->`chronocat`->llqqnt的强依赖链，在llqqnt有解决方法之前，本项目暂时归档。
+
  基于[HarukaBot](https://github.com/SK-415/HarukaBot)，适配Red协议
 
 因[`go-cqhttp`停止维护](https://github.com/Mrs4s/go-cqhttp/issues/2471)，
